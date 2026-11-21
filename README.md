@@ -85,7 +85,7 @@ Allow Copilot co-authors but block everything else:
 Add your own rules from the repo:
 
 ```yaml
-- uses: actions/checkout@v4
+- uses: actions/checkout@v5
 - uses: kexhq/no-agent-marketing@v1
   with:
     rule-files: .github/agent-marketing-rules.txt
