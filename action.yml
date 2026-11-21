@@ -1,5 +1,5 @@
 name: No Agent Marketing
-description: 'Fail when commit messages or PR title/body contain AI-agent attribution or marketing lines (e.g. "Generated with Claude Code", "Co-Authored-By: Claude").'
+description: 'Fail PRs whose commits, title or description contain AI-agent attribution lines like "Co-Authored-By: Claude".'
 author: kexhq
 branding:
   icon: slash
