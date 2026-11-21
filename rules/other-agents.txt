@@ -1,0 +1,3 @@
+# Other coding agents
+Generated (with|by|using) \[?(Devin|Aider|Windsurf|Cline|Amp|Roo Code|Zed AI)
+Co-Authored-By:.*(Devin|Aider|Windsurf|Cline)

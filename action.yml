@@ -1,0 +1,63 @@
+name: No Agent Marketing
+description: Fail when commit messages or PR title/body contain AI-agent attribution or marketing lines (e.g. "Generated with Claude Code", "Co-Authored-By: Claude").
+author: kexhq
+branding:
+  icon: slash
+  color: red
+
+inputs:
+  rules:
+    description: Built-in rule sets to enable (comma/space/newline separated), "all", or "none". See rules/ for names.
+    default: all
+  exclude-rules:
+    description: Built-in rule sets to disable, e.g. "copilot".
+    default: ""
+  rule-files:
+    description: Extra rule files from your repo, one path per line, relative to the workspace (needs actions/checkout). Rule name = file basename.
+    default: ""
+  extra-patterns:
+    description: Extra case-insensitive extended regexes, one per line (reported as rule "custom").
+    default: ""
+  allow-patterns:
+    description: Case-insensitive extended regexes, one per line. Matching lines are never reported.
+    default: ""
+  sources:
+    description: What to scan, any of "commits", "pr-title", "pr-body".
+    default: commits, pr-title, pr-body
+  fail:
+    description: Fail the job on a match. If "false", only emit warnings.
+    default: "true"
+  failure-message:
+    description: Message printed when the check fails.
+    default: ""
+  token:
+    description: Token used to list PR commits.
+    default: ${{ github.token }}
+
+outputs:
+  found:
+    description: '"true" if any match was found.'
+    value: ${{ steps.scan.outputs.found }}
+  count:
+    description: Number of matching lines.
+    value: ${{ steps.scan.outputs.count }}
+  matches:
+    description: 'JSON array of {source, ref, line, rule, text}.'
+    value: ${{ steps.scan.outputs.matches }}
+
+runs:
+  using: composite
+  steps:
+    - id: scan
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        INPUT_RULES: ${{ inputs.rules }}
+        INPUT_EXCLUDE_RULES: ${{ inputs.exclude-rules }}
+        INPUT_RULE_FILES: ${{ inputs.rule-files }}
+        INPUT_EXTRA_PATTERNS: ${{ inputs.extra-patterns }}
+        INPUT_ALLOW_PATTERNS: ${{ inputs.allow-patterns }}
+        INPUT_SOURCES: ${{ inputs.sources }}
+        INPUT_FAIL: ${{ inputs.fail }}
+        INPUT_FAILURE_MESSAGE: ${{ inputs.failure-message }}
+      run: bash "$GITHUB_ACTION_PATH/scripts/scan.sh"

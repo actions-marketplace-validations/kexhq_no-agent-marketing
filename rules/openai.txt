@@ -1,0 +1,3 @@
+# OpenAI ChatGPT / Codex
+Generated (with|by|using) \[?(ChatGPT|OpenAI|Codex)
+Co-Authored-By:.*(ChatGPT|OpenAI|Codex)

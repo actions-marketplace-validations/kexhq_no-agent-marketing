@@ -1,0 +1,3 @@
+# Google Gemini / Jules
+Generated (with|by|using) \[?(Gemini|Jules)
+Co-Authored-By:.*(Gemini|Jules)

@@ -1,0 +1,8 @@
+# Lines that must NOT match any built-in rule.
+Fix the code generation step
+Refactor agent loop
+Co-Authored-By: Jane Doe <jane@example.org>
+Add Claude-style tokenizer benchmark
+Generated parser tables with bison
+Update cursor position handling
+Bump copilot-language-server fixture

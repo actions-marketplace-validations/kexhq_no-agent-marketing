@@ -1,0 +1,3 @@
+# Cursor
+Generated (with|by|using) \[?Cursor
+Co-Authored-By:.*Cursor

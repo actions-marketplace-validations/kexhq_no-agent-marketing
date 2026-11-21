@@ -1,0 +1,5 @@
+# Anthropic Claude / Claude Code
+Generated (with|by|using) \[?Claude
+Co-Authored-By:.*(Claude|Anthropic)
+noreply@anthropic\.com
+claude\.(ai|com)/(code|claude-code)

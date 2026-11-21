@@ -1,0 +1,3 @@
+# Vendor-neutral marketing lines
+🤖.*(Generated|Co-Authored|with AI)
+Generated (with|by|using) (an )?(AI|LLM)( (agent|assistant|tool))?\b
